@@ -34,7 +34,7 @@ const YoutubeForm = () => {
     const formik = useFormik({
         initialValues,
         onSubmit,
-        validate:
+        validate
     })
 
     console.log('form Errors', formik.errors)

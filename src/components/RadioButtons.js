@@ -6,7 +6,7 @@ const RadioButtons = (props) => {
     return (
         <div className='form-control'>
             <label >{label}</label>
-            <Field  >
+            <Field name={name}  >
                 {
                     ({ field }) => {
                         console.log("field",field);

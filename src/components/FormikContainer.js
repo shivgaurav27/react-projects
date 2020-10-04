@@ -31,7 +31,7 @@ const FormikContainer = () => {
         radioOption:Yup.string().required('radio !!')
         
     })
-    const onSubmit = values =>console.log('Form data',values)
+    const onSubmit = values => console.log("submit data values ",values)
 
 
     return ( 
@@ -42,6 +42,7 @@ const FormikContainer = () => {
         >
             {
                 formik =>(
+                    
                     <Form>
                        <FormikControl
                         control='input'
@@ -53,6 +54,12 @@ const FormikContainer = () => {
                         control='textarea'
                         label='Description'
                         name='description'
+                        />
+                        <FormikControl
+                        control='select'
+                        label='Select a topic'
+                        name='selectOption'     
+                        options={dropDownOptions}
                         />
                         <FormikControl
                         control='radio'

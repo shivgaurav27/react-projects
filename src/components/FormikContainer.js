@@ -32,6 +32,8 @@ const FormikContainer = () => {
         
     })
     const onSubmit = values =>console.log('Form data',values)
+
+
     return ( 
         <Formik
             initialValues={initialValues}
@@ -58,9 +60,7 @@ const FormikContainer = () => {
                         name='radioOption' 
                         options={radioOptions}                        
                         />
-
-
-
+                        
                         <button type='submit'>submit</button>
                     </Form>
                 )

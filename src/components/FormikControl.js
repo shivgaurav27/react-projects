@@ -1,8 +1,13 @@
 import React from 'react';
-const FormikControl = ({control}) => {
+import Input from './Input'
+import Textarea from './Textarea';
+
+const FormikControl = (props) => {
+    const {control,...rest}=props;
+
     switch(control){
-        case 'input':
-        case 'textarea':
+        case 'input': return <Input  {...rest}/>
+        case 'textarea': return <Textarea {...rest} />
         case 'select':
         case 'radio':
         case 'checkbox':

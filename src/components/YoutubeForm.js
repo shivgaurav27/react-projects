@@ -1,19 +1,19 @@
 import React from 'react';
-import { Formik , Form , Field , ErrorMessage , FieldArray} from 'formik';
-import * as Yup from 'yup' ;
+import { Formik, Form, Field, ErrorMessage, FieldArray } from 'formik';
+import * as Yup from 'yup';
 import TextError from './TextError';
 
 const initialValues = {
     name: '',
     email: '',
     Channel: '',
-    comments:'',
-    social:{
-        facebook:'',
-        twitter:''
+    comments: '',
+    social: {
+        facebook: '',
+        twitter: ''
     },
-    phoneNumber:['',''],
-    phNumbers:[""]
+    phoneNumber: ['', ''],
+    phNumbers: [""]
 }
 const onSubmit = values => {
     console.log('form data', values)
@@ -37,19 +37,21 @@ const validate = values => {
     return errors
 }
 
-const validationSchema  = Yup.object({
-    name : Yup.string().required('Required'),
-    email:Yup.string().email('Invalid Email format').required('Required'),
-    Channel : Yup.string().required('Required')
+const validationSchema = Yup.object({
+    name: Yup.string().required('Required'),
+    email: Yup.string().email('Invalid Email format').required('Required'),
+    Channel: Yup.string().required('Required')
 })
 
 const YoutubeForm = () => {
 
     return (
         <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={onSubmit}
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={onSubmit}
+            // validateOnChange={false} //it will not show the erorrs onchange
+            // validateOnBlur={false} //it will not show error when blur event occur
         >
             <Form>
 
@@ -57,43 +59,43 @@ const YoutubeForm = () => {
                     <label htmlFor='name'>Name</label>
                     <Field type='text' id='text' name='name'
                     />
-                   <ErrorMessage name='name' component={TextError} />
+                    <ErrorMessage name='name' component={TextError} />
                 </div>
                 <div className='form-control'>
                     <label htmlFor='email'>E-mail</label>
                     <Field type='email' id='email' name='email'
                     />
-                   <ErrorMessage name='email' component={TextError}/>
+                    <ErrorMessage name='email' component={TextError} />
                 </div>
                 <div className='form-control'>
                     <label htmlFor='name'>Channel</label>
                     <Field type='text' id='Channel' name='Channel'
                     />
-                    <ErrorMessage name='Channel' component={TextError}/>
+                    <ErrorMessage name='Channel' component={TextError} />
                 </div>
                 <div className='form-control'>
                     <label htmlFor='comments'>Comments</label>
-                    <Field  as='textarea' type='text' id='comments' name='comments '
+                    <Field as='textarea' type='text' id='comments' name='comments '
                     />
                 </div>
                 <div className='form-control'>
                     <label htmlFor='facebook'>Facebok</label>
-                    <Field  type='text' id='facebook' name='social.facebook'
+                    <Field type='text' id='facebook' name='social.facebook'
                     />
                 </div>
                 <div className='form-control'>
                     <label htmlFor='twitter'>Comments</label>
-                    <Field   type='text' id='twitter' name='social.twitter'
+                    <Field type='text' id='twitter' name='social.twitter'
                     />
                 </div>
                 <div className='form-control'>
                     <label htmlFor='twitter'>Primary phone number</label>
-                    <Field   type='text' id='primaryPh' name='phoneNumber[0]'
+                    <Field type='text' id='primaryPh' name='phoneNumber[0]'
                     />
                 </div>
                 <div className='form-control'>
                     <label htmlFor='twitter'>Secondary phone number</label>
-                    <Field   type='text' id='secondaryPh' name='phoneNumber[1]'
+                    <Field type='text' id='secondaryPh' name='phoneNumber[1]'
                     />
                 </div>
                 <div className='form-control'>
@@ -101,23 +103,24 @@ const YoutubeForm = () => {
                     <FieldArray name='phNumbers'>
                         {
                             (fieldArrayProps) => {
-                                console.log('fieldArrayProps',fieldArrayProps);
-                                const {push,remove,form}=fieldArrayProps;
-                                const {values}=form;
-                                const {phNumbers}=values;
+                                console.log('fieldArrayProps', fieldArrayProps);
+                                const { push, remove, form } = fieldArrayProps;
+                                const { values } = form;
+                                const { phNumbers } = values;
+                                console.log('form errors',form.errors);
                                 return <div>
                                     {
-                                       phNumbers.map((phNumber,index)=>(
-                                           <div key={index}>
-                                               <Field name={`phNumbers${index}`} />
-                                               {
-                                                   index > 0 &&
-                                                   <button type='button' onClick={()=>remove(index)}>-</button>
+                                        phNumbers.map((phNumber, index) => (
+                                            <div key={index}>
+                                                <Field name={`phNumbers${index}`} />
+                                                {
+                                                    index > 0 &&
+                                                    <button type='button' onClick={() => remove(index)}>-</button>
 
-                                               }
-                                               <button type='button' onClick={()=>push('')}>+</button>
-                                           </div>
-                                       ))
+                                                }
+                                                <button type='button' onClick={() => push('')}>+</button>
+                                            </div>
+                                        ))
                                     }
                                 </div>
                             }

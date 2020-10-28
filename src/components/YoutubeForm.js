@@ -101,27 +101,32 @@ const YoutubeForm = () => {
                     <FieldArray name='phNumbers'>
                         {
                             (fieldArrayProps) => {
-                                console.log('fieldArrayProps',fieldArrayProps);
+                                // console.log('fieldArrayProps',fieldArrayProps);
                                 const {push,remove,form}=fieldArrayProps;
                                 const {values}=form;
                                 const {phNumbers}=values;
-                                return <div>
+                                console.log('phNumbers',phNumbers)
+                                return(
+                                    <div>
                                     {
-                                       phNumbers.map((phNumber,index)=>(
-                                           <div key={index}>
-                                               <Field name={`phNumbers${index}`} />
-                                               {
-                                                   index > 0 &&
-                                                   <button type='button' onClick={()=>remove(index)}>-</button>
-
-                                               }
-                                               <button type='button' onClick={()=>push('')}>+</button>
-                                           </div>
-                                       ))
+                                    phNumbers.map((phNumber, index) => (
+                                      <div key={index}>
+                                        <Field name={`phNumbers[${index}]`} />
+                                        {index > 0 && (
+                                          <button type='button' onClick={() => remove(index)}>
+                                            -
+                                          </button>
+                                        )}
+                                      </div>
+                                    ))
                                     }
-                                </div>
-                            }
+                                    <button type='button' onClick={() => push('')}>
+                                      +
+                                    </button>
+                                  </div>
+                                )
                         }
+                    }
                     </FieldArray>
                 </div>
                 <button type='submit'>Submit</button>

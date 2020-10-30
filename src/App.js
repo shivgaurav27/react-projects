@@ -25,7 +25,7 @@ function App() {
             <Form>
               <Field name='firstName' component={TextField} label='First Name'/>
               <Field name='firstName' component={TextField} label='First Name'/>
-              <Field name='firstName' component={CheckboxWithLabel} label='I am a millionaire'/>
+              <Field name='firstName' component={Checkbox} label='I am a millionaire'/>
               <Field name='firstName' component={TextField} label='First Name'/>
               <Field name='firstName' component={TextField} label='First Name'/>
             </Form>

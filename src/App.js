@@ -1,10 +1,10 @@
 import React from 'react';
-import {Card,CardContent,Checkbox,Typography} from '@material-ui/core/';
+import {Card,CardContent,Checkbox,Typography,TextField} from '@material-ui/core/';
 import {Field, Formik,Form} from 'formik';
+import { CheckboxWithLabel  } from 'formik-material-ui';
 
 
 import './App.css';
-import { TextField } from '@material-ui/core';
 
 function App() {
   const initialValues={
@@ -22,12 +22,18 @@ function App() {
           initialValues={initialValues }
           onSubmit={()=>{}}
           >
-            <Form>
+            <Form><div>
               <Field name='firstName' component={TextField} label='First Name'/>
               <Field name='firstName' component={TextField} label='First Name'/>
-              <Field name='firstName' component={Checkbox} label='I am a millionaire'/>
+              <Field name='firstName' component={CheckboxWithLabel} Label={{label:'I am a millionaire'}} />
+              </div>
+              <div>
               <Field name='firstName' component={TextField} label='First Name'/>
+              </div>
+              <div>
               <Field name='firstName' component={TextField} label='First Name'/>
+              </div>
+              
             </Form>
           </Formik>
         </CardContent>

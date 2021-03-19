@@ -6,7 +6,6 @@ import {
   makeStyles,
   Radio,
   RadioGroup,
-  TextField,
 } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
 import Input from "../../components/controls/Input";
@@ -38,13 +37,13 @@ export default function EmployeeForm() {
               onChange={handleInputChange}
             />
 
-            <TextField
+            <Input
               variant="outlined"
               label="Email"
               name="email"
               value={values.email}
               onChange={handleInputChange}
-            ></TextField>
+            />
           </Grid>
           <Grid item xs={6}>
             <FormControl>

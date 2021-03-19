@@ -8,9 +8,9 @@ import React from "react";
 import Header from "../components/Header";
 import SidebMenu from "../components/SidebMenu";
 import "./App.css";
-import PeopleOutlineIcon from "@material-ui/icons/PeopleOutline";
 
 import PageHeader from "../components/PageHeader";
+import Employees from "../pages/Employees/Employees";
 
 const useStyles = makeStyles({
   appMain: {
@@ -34,7 +34,7 @@ const theme = createMuiTheme({
     },
   },
   shape: {
-    borderRadius: "12px",
+    // borderRadius: "4px",
   },
   overrides: {
     MuiAppBar: {
@@ -52,11 +52,8 @@ function App() {
       <SidebMenu />
       <div className={classes.appMain}>
         <Header />
-        <PageHeader
-          title="Page Header"
-          subTitle="Page Description"
-          icon={<PeopleOutlineIcon fontSize="large" />}
-        />
+
+        <Employees />
       </div>
       <CssBaseline />
     </ThemeProvider>

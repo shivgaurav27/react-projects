@@ -45,7 +45,11 @@ function Header() {
           <Grid item sm></Grid>
           <Grid item>
             <IconButton>
-              <Badge badgeContent={4} color="secondary">
+              <Badge
+                badgeContent={4}
+                color="secondary"
+                className={classes.root}
+              >
                 <NotificationsNoneIcon fontSize="small" />
               </Badge>
             </IconButton>

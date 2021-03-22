@@ -27,7 +27,7 @@ export function generateEmployeeId() {
 }
 
 export function getAllEmployees() {
-  if (localStorage.getItem(KEYS.employees == null));
-  localStorage.setItem(KEYS.employees, JSON.stringify([]));
+  if (localStorage.getItem(KEYS.employees == null))
+    localStorage.setItem(KEYS.employees, JSON.stringify([]));
   return JSON.parse(localStorage.getItem(KEYS.employees));
 }

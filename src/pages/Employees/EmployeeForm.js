@@ -18,7 +18,7 @@ const initialValues = {
   gender: "male",
   departmentId: "",
   hireDate: new Date(),
-  iaPermanent: false,
+  isPermanent: false,
 };
 
 export default function EmployeeForm() {
@@ -59,6 +59,13 @@ export default function EmployeeForm() {
               onChange={handleInputChange}
               options={employeeService.getDepartmentCollection()}
             ></Controls.Select>
+
+            <Controls.Checkbox
+              name="isPermanent"
+              label="Permanent Employee"
+              value={values.isPermanent}
+              onChange={handleInputChange}
+            ></Controls.Checkbox>
           </Grid>
         </Grid>
       </Form>

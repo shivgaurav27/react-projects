@@ -87,6 +87,14 @@ export default function EmployeeForm() {
               value={values.isPermanent}
               onChange={handleInputChange}
             ></Controls.Checkbox>
+            <div>
+              <Controls.Button type="submit" text="Submit"></Controls.Button>
+              <Controls.Button
+                type="reset"
+                color="default"
+                text="Reset"
+              ></Controls.Button>
+            </div>
           </Grid>
         </Grid>
       </Form>

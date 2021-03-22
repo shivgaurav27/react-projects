@@ -2,7 +2,8 @@ import React from "react";
 import PageHeader from "../../components/PageHeader";
 import EmployeeForm from "./EmployeeForm";
 import PeopleOutlineIcon from "@material-ui/icons/PeopleOutline";
-import { Paper, makeStyles } from "@material-ui/core";
+import { Paper, makeStyles, TableBody } from "@material-ui/core";
+import UseTable from "../../components/controls/UseTable";
 
 const useStyles = makeStyles((theme) => ({
   pageContent: {
@@ -13,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Employees() {
   const classes = useStyles();
+  const { TblContainer } = UseTable();
   return (
     <>
       <PageHeader
@@ -22,6 +24,11 @@ export default function Employees() {
       />
       <Paper className={classes.pageContent}>
         <EmployeeForm />
+        {/* <TblContainer>
+          <TableBody>
+
+          </TableBody>
+        </TblContainer> */}
       </Paper>
     </>
   );

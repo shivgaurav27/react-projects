@@ -5,6 +5,10 @@ export function UseForm(initialValues) {
   const [values, setValues] = useState(initialValues);
   const [errors, setErrors] = useState({});
 
+  const resetForm = () => {
+    setValues(initialValues);
+    setErrors({});
+  };
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setValues({
@@ -17,6 +21,7 @@ export function UseForm(initialValues) {
     setValues,
     errors,
     setErrors,
+    resetForm,
     handleInputChange,
   };
 }

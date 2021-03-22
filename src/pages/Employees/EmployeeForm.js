@@ -22,9 +22,14 @@ const initialValues = {
 };
 
 export default function EmployeeForm() {
-  const { values, setValues, errors, setErrors, handleInputChange } = UseForm(
-    initialValues
-  );
+  const {
+    values,
+    setValues,
+    errors,
+    setErrors,
+    resetForm,
+    handleInputChange,
+  } = UseForm(initialValues);
 
   const emailRegex = /^.+@.+\..+$/;
   const validate = () => {
@@ -122,6 +127,7 @@ export default function EmployeeForm() {
                 type="reset"
                 color="default"
                 text="Reset"
+                onClick={resetForm}
               ></Controls.Button>
             </div>
           </Grid>

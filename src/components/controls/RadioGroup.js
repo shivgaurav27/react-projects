@@ -8,7 +8,6 @@ import {
 import React from "react";
 
 export default function RadioGroup(props) {
-  console.log("props", props);
   const { name, label, value, onChange, items } = props;
   return (
     <FormControl>

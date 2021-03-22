@@ -3,6 +3,7 @@ import React, { useState } from "react";
 
 export function UseForm(initialValues) {
   const [values, setValues] = useState(initialValues);
+  const [errors, setErrors] = useState({});
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -14,6 +15,8 @@ export function UseForm(initialValues) {
   return {
     values,
     setValues,
+    errors,
+    setErrors,
     handleInputChange,
   };
 }
@@ -28,9 +31,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 export default function Form(props) {
   const classes = useStyles();
+  const { children, ...othersProps } = props;
   return (
-    <form className={classes.root} autoComplete="off">
-      {props.children}
+    <form className={classes.root} autoComplete="off" {...othersProps}>
+      {children}
     </form>
   );
 }

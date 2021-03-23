@@ -1,5 +1,5 @@
 import { Grid } from "@material-ui/core";
-import React from "react";
+import React, { useEffect } from "react";
 import Controls from "../../components/controls/Controls";
 import Form, { UseForm } from "../../components/UseForm";
 import * as employeeService from "../../services/EmployeeServices";
@@ -23,7 +23,7 @@ const initialValues = {
 
 export default function EmployeeForm(props) {
   console.log("props", props);
-  const { addOrEdit } = props;
+  const { addOrEdit, recordsForEdit } = props;
 
   const {
     values,
@@ -55,6 +55,14 @@ export default function EmployeeForm(props) {
       addOrEdit(values, resetForm);
     }
   };
+
+  useEffect(() => {
+    if (recordsForEdit != null) {
+      setValues({
+        ...recordsForEdit,
+      });
+    }
+  }, [recordsForEdit]);
 
   return (
     <>

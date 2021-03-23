@@ -112,7 +112,10 @@ export default function Employees() {
             className={classes.newButton}
             text="Add New"
             variant="outlined"
-            onClick={() => setOpenPopup(true)}
+            onClick={() => {
+              setOpenPopup(true);
+              setRecordsForEdit(null);
+            }}
             startIcon={<AddIcon />}
           ></Controls.Button>
         </Toolbar>

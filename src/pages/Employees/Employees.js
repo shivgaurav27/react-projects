@@ -76,6 +76,7 @@ export default function Employees() {
     if (employee.id == 0) EmployeeService.insertEmployee(employee);
     else EmployeeService.updateEmployee(employee);
     resetForm();
+    setRecordsForEdit(null);
     setOpenPopup(false);
     setRecords(EmployeeService.getAllEmployees);
   };

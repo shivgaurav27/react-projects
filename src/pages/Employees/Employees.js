@@ -73,7 +73,8 @@ export default function Employees() {
   };
 
   const addOrEdit = (employee, resetForm) => {
-    EmployeeService.insertEmployee(employee);
+    if (employee.id == 0) EmployeeService.insertEmployee(employee);
+    else EmployeeService.updateEmployee(employee);
     resetForm();
     setOpenPopup(false);
     setRecords(EmployeeService.getAllEmployees);

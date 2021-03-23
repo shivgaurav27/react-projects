@@ -20,6 +20,7 @@ import { EditOutlined, Search } from "@material-ui/icons";
 
 import AddIcon from "@material-ui/icons/Add";
 import PopUp from "../../components/PopUp";
+import Notification from "../../components/Notification";
 
 const useStyles = makeStyles((theme) => ({
   pageContent: {
@@ -47,6 +48,11 @@ export default function Employees() {
   const [records, setRecords] = useState(EmployeeService.getAllEmployees);
   const [recordsForEdit, setRecordsForEdit] = useState(null);
   const [openPopup, setOpenPopup] = useState(false);
+  const [notify, setNotify] = useState({
+    isOpen: false,
+    message: "",
+    type: "",
+  });
   const [filterFn, setFilterFn] = useState({
     fn: (items) => {
       return items;
@@ -79,6 +85,11 @@ export default function Employees() {
     setRecordsForEdit(null);
     setOpenPopup(false);
     setRecords(EmployeeService.getAllEmployees);
+    setNotify({
+      isOpen: true,
+      message: "Submitted successfully !!!",
+      type: "success",
+    });
   };
 
   const openInPopup = (item) => {
@@ -152,6 +163,7 @@ export default function Employees() {
       >
         <EmployeeForm addOrEdit={addOrEdit} recordsForEdit={recordsForEdit} />
       </PopUp>
+      <Notification notify={notify} setNotify={setNotify} />
     </>
   );
 }

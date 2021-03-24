@@ -51,6 +51,10 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(2),
     },
   },
+  barColor: {
+    background: "#B5B8BC",
+    color: "#000000",
+  },
 }));
 
 function Header(props) {
@@ -65,7 +69,18 @@ function Header(props) {
 
   const drawer = (
     <div>
-      <div className={classes.toolbar} />
+      <div className={`${classes.toolbar} ${classes.barColor}`}>
+        <div
+          style={{
+            position: "relative",
+            top: "50%",
+            left: "30%",
+            transform: "translateY(50%)",
+          }}
+        >
+          <Typography variant="h2">VAPS</Typography>
+        </div>
+      </div>
       <Divider />
       <div className={classes.buttonDirection}>
         <Button variant="contained" color="primary">
@@ -98,7 +113,10 @@ function Header(props) {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <AppBar position="fixed" className={classes.appBar}>
+      <AppBar
+        position="fixed"
+        className={`${classes.appBar} ${classes.barColor}`}
+      >
         <Toolbar>
           <IconButton
             color="inherit"
@@ -109,8 +127,9 @@ function Header(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h2" noWrap>
-            VAPS
+          <Typography variant="h3" noWrap>
+            Vision Augmented <br />
+            Predictive Screening
           </Typography>
         </Toolbar>
       </AppBar>

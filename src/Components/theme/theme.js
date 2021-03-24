@@ -71,6 +71,9 @@ const theme = createMuiTheme({
       textTransform: "uppercase",
     },
   },
+  shape: {
+    borderRadius: "20px",
+  },
 });
 
 export default theme;

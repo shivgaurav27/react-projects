@@ -74,8 +74,7 @@ function Header(props) {
         <div
           style={{
             position: "relative",
-            left: "30%",
-            transform: "translateY(40%)",
+            transform: "translate(20%,20%)",
           }}
         >
           <Typography variant="h1">VAPS</Typography>

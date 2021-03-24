@@ -1,11 +1,21 @@
-import React from "react";
+import React, { lazy } from "react";
+import { Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
-import ViewPatients from "./Components/Pages/ViewPatients";
 
+const ViewPatients = lazy(() => import("./Components/Pages/ViewPatients"));
 export default function Routes() {
+  const SuspenseLoading = () => {
+    return (
+      <>
+        <h1>Loading...</h1>
+      </>
+    );
+  };
   return (
-    <Switch>
-      <Route exact path="/viewpatients" component={ViewPatients} />
-    </Switch>
+    <Suspense fallback={<SuspenseLoading />}>
+      <Switch>
+        <Route exact path="/viewpatients" component={ViewPatients} />
+      </Switch>
+    </Suspense>
   );
 }

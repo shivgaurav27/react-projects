@@ -2,9 +2,9 @@ import React, { lazy } from "react";
 import { Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
 
-const viewPatients = lazy(() => import("./Components/Pages/ViewPatients"));
 const patientImages = lazy(() => import("./Components/Pages/PatientImages"));
 const addPatient = lazy(() => import("./Components/Pages/AddPatient"));
+const ViewPatients = lazy(() => import("./Components/Pages/ViewPatients"));
 
 export default function Routes() {
   const SuspenseLoading = () => {
@@ -17,9 +17,9 @@ export default function Routes() {
   return (
     <Suspense fallback={<SuspenseLoading />}>
       <Switch>
-        <Route exact path="/viewpatients" component={viewPatients} />
         <Route exact path="/patientimages" component={patientImages} />
         <Route exact path="/addpatient" component={addPatient} />
+        <Route exact path="/viewpatients" component={ViewPatients} />
       </Switch>
     </Suspense>
   );

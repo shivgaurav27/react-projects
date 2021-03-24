@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function ViewPatients() {
+export default function PatientsView() {
   return (
     <div>
-      <h1>Hello patients</h1>
+      <h1>patients view</h1>
     </div>
   );
 }

@@ -74,12 +74,11 @@ function Header(props) {
         <div
           style={{
             position: "relative",
-            top: "50%",
             left: "30%",
-            transform: "translateY(50%)",
+            transform: "translateY(40%)",
           }}
         >
-          <Typography variant="h2">VAPS</Typography>
+          <Typography variant="h1">VAPS</Typography>
         </div>
       </div>
       <Divider />
@@ -94,7 +93,7 @@ function Header(props) {
         <Button
           variant="contained"
           color="primary"
-          onClick={() => history.push("/viewpatient")}
+          onClick={() => history.push("/viewpatients")}
         >
           View Patients
         </Button>

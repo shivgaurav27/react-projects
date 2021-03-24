@@ -10,6 +10,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { Button } from "@material-ui/core";
+import history from "../../history";
 
 const drawerWidth = 240;
 
@@ -83,13 +84,25 @@ function Header(props) {
       </div>
       <Divider />
       <div className={classes.buttonDirection}>
-        <Button variant="contained" color="primary">
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => history.push("/addpatient")}
+        >
           Add Patient
         </Button>
-        <Button variant="contained" color="primary">
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => history.push("/viewpatient")}
+        >
           View Patients
         </Button>
-        <Button variant="contained" color="primary" className="mt-2">
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => history.push("/patientimages")}
+        >
           View Uploaded Images
         </Button>
       </div>
